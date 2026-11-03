@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-Report privately through **[GitHub security advisories](https://github.com/Ayoubhm07/rightsize/security/advisories/new)**.
+Report privately through **[GitHub security advisories](https://github.com/spar-x-fr/spar-x-skills/security/advisories/new)**.
 Do not open a public issue. Include what you found, how to reproduce it and the
 impact you expect. You will get an answer within 7 days.
 

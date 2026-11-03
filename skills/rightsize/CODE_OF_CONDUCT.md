@@ -7,5 +7,5 @@ people, and keep discussions about the work. Harassment or discrimination of any
 kind is not tolerated.
 
 Report unacceptable behaviour privately to the maintainer through a
-[GitHub security advisory](https://github.com/Ayoubhm07/rightsize/security/advisories/new)
+[GitHub security advisory](https://github.com/spar-x-fr/spar-x-skills/security/advisories/new)
 or a direct message to @Ayoubhm07. Reports are handled confidentially.

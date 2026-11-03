@@ -1,14 +1,14 @@
 # rightsize
 
-> This folder holds the full [Ayoubhm07/rightsize](https://github.com/Ayoubhm07/rightsize)
+> This folder holds the full rightsize project by Ayoub Hammoudi
 > project (commit `c3b63f4`) with the skill files at its root. In these guides,
 > `<rightsize>` is this folder. The plugin of the original project keeps its scripts in
-> `skills/rightsize/scripts/`. CI, repository settings and the plugin manifest stay in the
-> original repository; `docs/maintainers.md` describes them there.
+> `skills/rightsize/scripts/`. CI, repository settings and the plugin manifest live at the root of
+> [spar-x-fr/spar-x-skills](https://github.com/spar-x-fr/spar-x-skills); see its `docs/maintainers.md`.
 
 **Elite quality first. Then every token spent where it changes the outcome.**
 
-[![CI](https://github.com/Ayoubhm07/rightsize/actions/workflows/ci.yml/badge.svg)](https://github.com/Ayoubhm07/rightsize/actions/workflows/ci.yml)
+[![CI](https://github.com/spar-x-fr/spar-x-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/spar-x-fr/spar-x-skills/actions/workflows/ci.yml)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Dependencies: none](https://img.shields.io/badge/runtime%20dependencies-none-brightgreen.svg)
 
@@ -19,7 +19,8 @@ session), and verification proportionate to the change. It escalates on evidence
 never on habit.
 
 ```text
-/plugin install rightsize --marketplace Ayoubhm07/rightsize
+/plugin marketplace add spar-x-fr/spar-x-skills
+/plugin install spar-x-skills@spar-x-skills
 ```
 
 ## Rule 0: quality before optimisation
