@@ -1,0 +1,30 @@
+name: Bug
+description: Un comportement incorrect d'une skill, d'un hook ou d'un script.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Pour une faille de sécurité, n'ouvrez pas de ticket : voir SECURITY.md."
+  - type: input
+    id: skill
+    attributes:
+      label: Skill concernée
+      placeholder: rightsize
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Comment reproduire
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Résultat attendu et résultat obtenu
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versions (Claude Code, Python, OS)

@@ -1,0 +1,15 @@
+name: Demande d'évolution
+description: Une amélioration ou une nouvelle skill.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Le besoin
+      description: Le problème à résoudre, avant la solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposition
