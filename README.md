@@ -31,6 +31,7 @@ Différences avec l'original :
 ## Contact
 
 - Site : [spar-x.fr](https://www.spar-x.fr)
+- LinkedIn : [Spar-x](https://www.linkedin.com/company/105543518/)
 - E-mail : formation@spar-x.fr
 - Téléphone : 06 51 48 47 86
 - Paris, France
