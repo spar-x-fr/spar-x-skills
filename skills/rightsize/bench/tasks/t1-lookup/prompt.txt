@@ -1,0 +1,1 @@
+In this repository, what exponential backoff factor does the payment client actually use when it retries a charge, and in which file is that value defined? Do not modify any file. End your answer with one line of JSON exactly like {"value": <number>, "file": "<path relative to the repo root>"}.

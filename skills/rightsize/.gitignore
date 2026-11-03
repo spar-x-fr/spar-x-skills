@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.bak
+.mypy_cache/
+.ruff_cache/
+bench/results.jsonl
+.claude/rightsize/
+.github/tools/claude-code/node_modules/

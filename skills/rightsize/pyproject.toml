@@ -1,0 +1,45 @@
+# rightsize has no runtime dependencies: the scripts use the standard library only.
+# This file only configures the development tools used locally and in CI.
+
+[project]
+name = "rightsize"
+version = "0.1.0"
+description = "Elite quality first, measured model and effort routing for Claude Code."
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = []
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+extend-exclude = ["bench/tasks"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F",   # pycodestyle, pyflakes
+    "B",             # bugbear: likely bugs
+    "I",             # import order
+    "UP",            # modern syntax for the target version
+    "S",             # bandit: security
+    "SIM", "C4",     # simplifications, comprehensions
+    "PTH",           # pathlib over os.path
+    "RUF",
+]
+ignore = [
+    "S603", "S607",  # subprocess with a fixed argv list is the point of these tools
+    "S101",          # assert is fine in tests and benchmarks
+    "RUF001", "RUF002", "RUF003",  # French and typographic characters in text are intended
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S108", "PTH"]
+"bench/*" = ["S311"]
+"scripts/test_scope.py" = ["S311"]
+
+[tool.mypy]
+# mypy 2.x analyses for 3.10+; Python 3.9 support is enforced by the CI test matrix.
+python_version = "3.10"
+files = ["scripts", "hooks", "bench/run_bench.py", "bench/summarize.py"]
+strict = true
+warn_unreachable = true
+pretty = true
