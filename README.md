@@ -34,7 +34,7 @@ Ou copiez le dossier `skills/rightsize/` dans `~/.claude/skills/`.
 
 ## Origine et modifications
 
-`rightsize` vient du projet d'Ayoub, [Ayoubhm07/rightsize](https://github.com/Ayoubhm07/rightsize), sous licence MIT. Le dossier [`skills/rightsize/`](skills/rightsize/) contient le projet complet : la skill, ses scripts, les agents `rs-*`, les hooks, la documentation, les tests et le benchmark.
+`rightsize` vient du projet d'Ayoub Hammoudi ([LinkedIn](https://www.linkedin.com/in/ayoubhammoudi/)), sous licence MIT. Le dossier [`skills/rightsize/`](skills/rightsize/) contient le projet complet : la skill, ses scripts, les agents `rs-*`, les hooks, la documentation, les tests et le benchmark.
 
 Différences avec l'original :
 
