@@ -28,6 +28,13 @@ Différences avec l'original :
 - les montants en dollars de l'annexe B sont écrits « USD 0.12 » au lieu de « $0.12 » : dans une skill, `$0`, `$1`… sont remplacés par les arguments de l'appel, ce qui rendait ces montants illisibles ;
 - les scripts (`test_scope.py`, `token_audit.py`, `agent_audit.py`), les agents `rs-*` et les hooks ne sont pas inclus : installez le plugin d'origine pour en profiter. La skill indique déjà quoi faire sans eux.
 
+## Contact
+
+- Site : [spar-x.fr](https://www.spar-x.fr)
+- E-mail : formation@spar-x.fr
+- Téléphone : 06 51 48 47 86
+- Paris, France
+
 ## Mainteneurs
 
 | Nom | GitHub | LinkedIn |
