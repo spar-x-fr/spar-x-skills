@@ -1,0 +1,1 @@
+Implement `schedule` in scheduler.py as specified in its docstring. The result must be optimal (minimum possible maximum lateness), not just a good heuristic. Run `python -m unittest` to check the provided tests.

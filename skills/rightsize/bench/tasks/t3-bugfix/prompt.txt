@@ -1,0 +1,1 @@
+The tests in test_durations.py fail. Fix durations.py so that parse_duration handles every format described in its docstring, then run `python -m unittest` to confirm. Invalid input (an unknown unit, a unit with no number, or trailing digits without a unit) should raise ValueError.

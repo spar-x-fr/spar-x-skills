@@ -1,0 +1,5 @@
+Three jobs in this repository:
+1. The tests in test_durations.py fail. Fix durations.py so that parse_duration handles every format in its docstring; invalid input (an unknown unit, a unit with no number, or trailing digits without a unit) should raise ValueError.
+2. Rename the function `calc` in geometry.py to `compute_area`, update every caller and comment that refers to it, and add type hints to compute_area (parameters and return type).
+3. Find out what exponential backoff factor the payment client actually uses when it retries a charge, and in which file that value is defined. Do not modify the payments code.
+Run `python -m unittest` at the end; all tests must pass. End your answer with one line of JSON exactly like {"value": <number>, "file": "<path relative to the repo root>"} for job 3.

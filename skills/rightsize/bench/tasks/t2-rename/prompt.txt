@@ -1,0 +1,1 @@
+Rename the function `calc` in geometry.py to `compute_area`, update every caller and comment that refers to it, and add type hints to compute_area (parameters and return type). The existing tests in test_geometry.py must pass: run them with `python -m unittest` to check.

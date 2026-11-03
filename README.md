@@ -34,12 +34,13 @@ Ou copiez le dossier `skills/rightsize/` dans `~/.claude/skills/`.
 
 ## Origine et modifications
 
-`rightsize` vient du projet d'Ayoub, [Ayoubhm07/rightsize](https://github.com/Ayoubhm07/rightsize), sous licence MIT. Cette version reprend le fichier `SKILL.md` avec ses annexes (playbooks experts et référence de routage).
+`rightsize` vient du projet d'Ayoub, [Ayoubhm07/rightsize](https://github.com/Ayoubhm07/rightsize), sous licence MIT. Le dossier [`skills/rightsize/`](skills/rightsize/) contient le projet complet : la skill, ses scripts, les agents `rs-*`, les hooks, la documentation, les tests et le benchmark.
 
 Différences avec l'original :
 
-- les montants en dollars de l'annexe B sont écrits « USD 0.12 » au lieu de « $0.12 » : dans une skill, `$0`, `$1`… sont remplacés par les arguments de l'appel, ce qui rendait ces montants illisibles ;
-- les scripts (`test_scope.py`, `token_audit.py`, `agent_audit.py`), les agents `rs-*` et les hooks ne sont pas inclus : installez le plugin d'origine pour en profiter. La skill indique déjà quoi faire sans eux.
+- les fichiers de la skill sont à la racine de `skills/rightsize/` et les chemins sont adaptés en conséquence ;
+- la CI, les réglages du dépôt et le manifeste du plugin restent dans le dépôt d'origine ;
+- ce plugin active uniquement la skill. Les agents `rs-*` et les hooks présents dans le dossier ne se chargent pas seuls : installez le plugin d'origine pour en profiter, ou suivez [l'installation manuelle](skills/rightsize/docs/getting-started.md#manual-install-without-the-plugin-system).
 
 ## Se former avec Spar-x
 
