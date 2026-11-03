@@ -1,0 +1,10 @@
+{
+  "name": "spar-x-skills",
+  "version": "0.1.0",
+  "description": "Skills Claude Code sélectionnées par Spar-x. Première skill : rightsize d'Ayoub (qualité d'abord, puis le bon modèle, le bon effort et des vérifications proportionnées).",
+  "author": { "name": "Spar-x (E-KIGAI)", "url": "https://github.com/spar-x-fr" },
+  "homepage": "https://github.com/spar-x-fr/spar-x-skills",
+  "repository": "https://github.com/spar-x-fr/spar-x-skills",
+  "license": "MIT",
+  "keywords": ["claude-code", "skills", "rightsize", "model-routing", "effort", "quality"]
+}

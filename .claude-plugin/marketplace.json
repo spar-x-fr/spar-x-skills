@@ -1,0 +1,8 @@
+{
+  "name": "spar-x-skills",
+  "description": "Skills Claude Code sélectionnées par Spar-x.",
+  "owner": { "name": "Spar-x (E-KIGAI)", "url": "https://github.com/spar-x-fr" },
+  "plugins": [
+    { "name": "spar-x-skills", "source": "./", "description": "rightsize : qualité d'abord, puis le bon modèle, le bon effort et des vérifications proportionnées." }
+  ]
+}
