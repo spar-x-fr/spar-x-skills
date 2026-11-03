@@ -13,7 +13,8 @@
 In Claude Code:
 
 ```text
-/plugin install rightsize --marketplace Ayoubhm07/rightsize
+/plugin marketplace add spar-x-fr/spar-x-skills
+/plugin install spar-x-skills@spar-x-skills
 ```
 
 This installs the skill, the four `rs-*` agents and the hooks that make the rules
