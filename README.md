@@ -1,4 +1,21 @@
-# spar-x-skills
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/cover-dark.svg">
+  <img src="docs/assets/cover-light.svg" alt="spar-x-skills : des skills Claude Code prêtes pour la production, avec les deux commandes d'installation" width="100%">
+</picture>
+
+<p align="center">
+  <a href="https://github.com/spar-x-fr/spar-x-skills/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/spar-x-fr/spar-x-skills/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="Licence MIT" src="https://img.shields.io/badge/licence-MIT-blue.svg">
+  <img alt="Plugin Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-D97757.svg">
+  <img alt="Spar-x certifié Qualiopi" src="https://img.shields.io/badge/Spar--x-Qualiopi-0B7A4B.svg">
+</p>
+
+<p align="center">
+  <a href="#installation"><b>Installer</b></a> ·
+  <a href="#skills-incluses"><b>Skills</b></a> ·
+  <a href="skills/rightsize/README.md"><b>Documentation rightsize</b></a> ·
+  <a href="#se-former-avec-spar-x"><b>Se former</b></a>
+</p>
 
 **Des skills Claude Code prêtes pour la production, sélectionnées et maintenues par [Spar-x](https://www.spar-x.fr), organisme de formation IA certifié Qualiopi.**
 
@@ -15,11 +32,18 @@ Un agent de code mal piloté coûte cher de deux façons : il rend un travail ap
 
 Résultat : des livrables du niveau des meilleurs, sans gaspiller le budget de l'équipe.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/proof-dark.svg">
+  <img src="docs/assets/proof-light.svg" alt="100 exécutions valides notées par tests ou oracle ; coût d'Opus 5.5 en max 7,7 fois celui de high sans gain ; moins 98 pour cent sur une recherche routée, mêmes réussites" width="100%">
+</picture>
+
+Ces tâches sont bien spécifiées et vérifiables, et les échantillons sont petits : rien ici ne mesure le travail ouvert. [Détail et limites des mesures](skills/rightsize/README.md#measured-not-claimed).
+
 ## Skills incluses
 
 | Skill | Ce qu'elle fait | Auteur |
 |---|---|---|
-| [`rightsize`](skills/rightsize/SKILL.md) | Qualité d'abord, puis le bon plan, le bon modèle (Haiku, Sonnet, Opus, Fable), le bon niveau d'effort et des vérifications proportionnées au changement. Montée en gamme sur preuve, jamais par habitude. | [Ayoub](https://github.com/Ayoubhm07) |
+| [`rightsize`](skills/rightsize/SKILL.md) | Qualité d'abord, puis le bon plan, le bon modèle (Haiku, Sonnet, Opus, Fable), le bon niveau d'effort et des vérifications proportionnées au changement. Montée en gamme sur preuve, jamais par habitude. | [Ayoub Hammoudi](https://github.com/Ayoubhm07)<br>Également maintenue par [Zakaria Khchiche](https://github.com/Zakariakhchiche) |
 
 ## Installation
 
@@ -69,4 +93,4 @@ Cette skill applique ce que nous enseignons : piloter des agents IA pour qu'ils 
 
 ## Licence
 
-MIT, voir [LICENSE](LICENSE). Copyright d'origine : Ayoub.
+MIT, voir [LICENSE](LICENSE). Copyright d'origine : Ayoub Hammoudi.
