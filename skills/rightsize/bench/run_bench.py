@@ -58,8 +58,15 @@ def prepare(task_dir: Path, run_dir: Path, with_skill: bool) -> None:
             SKILL,
             target / "skills" / "rightsize",
             ignore=shutil.ignore_patterns(
-                "__pycache__", "*.bak", ".*", "agents", "bench", "docs", "examples",
-                "hooks", "tests",
+                "__pycache__",
+                "*.bak",
+                ".*",
+                "agents",
+                "bench",
+                "docs",
+                "examples",
+                "hooks",
+                "tests",
             ),
         )
         shutil.copytree(ROOT / "agents", target / "agents")

@@ -1,5 +1,8 @@
 # Maintainer notes
 
+> These notes describe the original private repository. For spar-x-fr/spar-x-skills,
+> see [`docs/maintainers.md`](../../../docs/maintainers.md) at the repository root.
+
 ## Repository settings already applied
 
 - Squash merges only, branches deleted after merge, no wiki or projects.

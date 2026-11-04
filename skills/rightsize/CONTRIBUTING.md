@@ -6,7 +6,7 @@ welcome when it makes the work better and can show it.
 ## Set up
 
 ```bash
-git clone https://github.com/Ayoubhm07/rightsize.git && cd rightsize
+git clone https://github.com/spar-x-fr/spar-x-skills.git && cd spar-x-skills/skills/rightsize
 python -m pip install --require-hashes --no-deps -r requirements-dev.txt   # Python 3.11+
 ```
 
