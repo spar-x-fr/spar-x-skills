@@ -14,6 +14,7 @@
   <a href="#installation"><b>Installer</b></a> ·
   <a href="#skills-incluses"><b>Skills</b></a> ·
   <a href="skills/rightsize/README.md"><b>Documentation rightsize</b></a> ·
+  <a href="https://github.com/spar-x-fr/spar-x-skills/discussions"><b>Discussions</b></a> ·
   <a href="#se-former-avec-spar-x"><b>Se former</b></a>
 </p>
 
@@ -75,6 +76,11 @@ Cette skill applique ce que nous enseignons : piloter des agents IA pour qu'ils 
 - Organisme certifié Qualiopi : formations finançables par votre OPCO.
 
 [Demander un devis](https://forms.gle/ARaTCq9ADgqvJfKL8) · [spar-x.fr](https://www.spar-x.fr)
+
+## Communauté
+
+- [Discussions](https://github.com/spar-x-fr/spar-x-skills/discussions) : questions, idées, retours d'expérience.
+- [Contribuer](CONTRIBUTING.md) · [Obtenir de l'aide](SUPPORT.md) · [Code de conduite](CODE_OF_CONDUCT.md) · [Sécurité](SECURITY.md)
 
 ## Contact
 

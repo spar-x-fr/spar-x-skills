@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Question ou idée
+    url: https://github.com/spar-x-fr/spar-x-skills/discussions
+    about: Posez-la dans les Discussions.
   - name: Signaler une vulnérabilité
     url: https://github.com/spar-x-fr/spar-x-skills/security/advisories/new
     about: En privé, jamais dans un ticket public.
