@@ -20,11 +20,16 @@ verified by a check.
 Never stop at the first plausible answer. Verify it against the code, a run or a
 source; look for the case that breaks it; then deliver.
 
+**Trivial work skips the rest.** A direct answer, a lookup or a one-step edit with an
+obvious check gets no scoring and no playbook: do it, verify it, deliver. The method
+below must cost less than the waste it prevents.
+
 ## 1. Think once, at the right level
 
 Before acting on non-trivial work, pick the playbook for the work type in
 [PLAYBOOKS.md](PLAYBOOKS.md) (bug, feature, refactor, research, review, migration,
-performance, docs). Each one gives the expert sequence, where the hard thinking goes,
+performance, docs; and outside code: writing, data and documents, actions taken in
+someone's name, unattended runs). Each one gives the expert sequence, where the hard thinking goes,
 what to delegate and how to verify. Hard thinking happens once, up front, on the
 strongest model the task needs; execution then runs on cheaper tiers against that
 plan.
@@ -50,23 +55,27 @@ compiler will prove the result.
 
 `peak = max(C, A, D)`, plus 1 if `R ≥ 2` (cap 3).
 
+Read the table top to bottom and stop at the first row that matches (the order
+`scripts/route.py` applies):
+
 | Situation | Model | Effort |
 |---|---|---|
 | T0 | no model: run the tool | — |
 | READ, or BULK with an exact spec and a check, R ≤ 1 | haiku | low |
 | peak ≤ 1 | haiku, or sonnet if others build on the result | low |
 | peak = 2 | sonnet | medium |
+| D = 3 with R ≥ 2, or D = 3 in a long autonomous run | opus | xhigh |
+| D = 3, or R = 3 | opus | high |
+| C or A = 3 | opus plans (high), sonnet executes (medium) | |
 | peak = 3 only through the risk bonus | opus | medium |
-| peak = 3 because C or A = 3 | opus plans (high), sonnet executes (medium) | |
-| peak = 3 because D = 3, or R = 3 | opus | high |
-| D = 3 and R ≥ 2, or long autonomous run | opus | xhigh |
-| opus xhigh failed on it | fable, or opus max | xhigh / max |
+
+After a failure at opus xhigh: fable at xhigh, then fable at max (section 7).
 
 **Effort, measured.** 100 headless runs in October 2026: 4 tasks with hidden tests or
 an oracle (bug fix, 6 subtle bugs, a constrained routing algorithm, a regex engine
 checked against Python's `re`), Haiku, Sonnet and Opus 5.5. Every run passed from
-`low`. Above `medium` nothing improved: `xhigh` cost 1.4–2.2× `high`, `max` 3.7–9.3×,
-with 4–7× the wall time. So:
+`low`. Above `medium` nothing improved: `xhigh` cost 1.4–2.2× `high`, `max` 3.7–9.3×
+and up to 11× the wall time. So:
 
 - **CHK**: start one effort level below the table (never when R = 3). The check, not
   the effort, guarantees the quality; a failure climbs the ladder.
@@ -116,6 +125,9 @@ starting, write or locate the check that will prove the result.
   green run was.
 - Delegate long test runs to `rs-verifier` so their output stays out of the main
   context.
+- No test suite (text, data, documents, actions)? The check still exists and is named
+  before starting: a source for every fact, figures recomputed, the file opened and
+  looked at, a dry run before anything is sent. Each playbook names its check.
 
 ## 7. Escalate and de-escalate on evidence
 
@@ -130,11 +142,20 @@ at high effort. Never on security, money, migrations, deletion or anything publi
 
 ## 8. Protect the cache and the context
 
-- Do not change the main model mid-session: caches are per model, and Opus 5.5 and
-  Sonnet 5.5 cache reads cost the same.
+- Do not change the main model mid-session: caches are per model, so the switch
+  pays a full cache re-write.
 - Do not edit CLAUDE.md, rules or settings mid-session.
 - Before a pause over an hour, finish the step or leave a hand-over note.
 - `/compact` at a natural boundary with a focus line.
+
+## 9. When the levers are missing
+
+Chat apps, a single-model API call or a harness without `model`/`effort` on the Agent
+call cannot route. Everything else still applies: Rule 0, the playbook, the check
+named before starting, the brief and report formats, escalation on evidence. The
+score then decides how much to plan, whether a sub-agent is worth its start-up cost
+and how much to verify, not which model runs. Never claim a routing, a script run or
+a saving that did not happen in this session.
 
 Details and cost arithmetic: [ROUTING.md](ROUTING.md). Measure real spend:
 `scripts/token_audit.py`. Agents without `model`/`effort`: `scripts/agent_audit.py`.

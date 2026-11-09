@@ -23,7 +23,7 @@
 > [spar-x-fr/spar-x-skills](https://github.com/spar-x-fr/spar-x-skills); see its `docs/maintainers.md`.
 
 A Claude Code plugin that gives every session an expert work strategy: the right
-playbook for the job, the right model (Haiku 5.5, Sonnet 5.5, Opus 5.5, Fable 5.1),
+playbook for the job, the right model (Haiku 5.5, Sonnet 5.5, Opus 5.5, Fable 5.2),
 the right effort (`low` to `max`), the right mode (inline, sub-agent, plan, separate
 session), and verification proportionate to the change. It escalates on evidence,
 never on habit.
@@ -66,7 +66,7 @@ compared with Python's `re` on 3 000 random patterns.
 | Cost vs `high`, same model | low | medium | xhigh | max |
 |---|---|---|---|---|
 | Sonnet 5.5 | 0.4–0.6× | 0.5–0.8× | 1.4–1.9× | 5.0–8.1× |
-| Opus 5.5 | 0.6–1.1× | 0.9–1.0× | 1.5–2.2× | 3.7–9.3× (4–7× slower) |
+| Opus 5.5 | 0.6–1.1× | 0.9–1.0× | 1.5–2.2× | 3.7–9.3× (1.1–10.9× slower) |
 
 So rightsize lets a **check** (tests, an oracle, a compiler) carry the quality: a
 verified task starts one effort level lower and climbs on failure. Work no check can
