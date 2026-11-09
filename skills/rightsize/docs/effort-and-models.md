@@ -2,7 +2,7 @@
 
 Everything here is either measured in this repository (`bench/results/`) or taken
 from Anthropic's documentation, and says which. Prices are list prices checked on
-2026-10-27.
+2026-11-09.
 
 ## Models
 
@@ -11,14 +11,14 @@ from Anthropic's documentation, and says which. Prices are list prices checked o
 | Haiku 5.5 | 0.10 / 0.50 | lookups, reading, mechanical edits, bulk work, anything a test or oracle will check |
 | Sonnet 5.5 | 2 / 10 | standard implementation, fixes, refactors, tests |
 | Opus 5.5 | 4 / 20 | planning, hard bugs, architecture, review of risky changes |
-| Fable 5.1 | 10 / 50 | only after Opus at `xhigh` failed on the task |
+| Fable 5.2 | 8 / 40 | only after Opus at `xhigh` failed on the task |
 
 Two consequences of the price sheet worth knowing:
 
-- Haiku costs 1/40 of Opus. Sonnet costs half of Opus, and the **same** on cache reads
-  ($0.20 per MTok), which is most of a long session's input. Switching a cached
-  session from Opus to Sonnet saves little and re-writes the whole cache: route the
-  work through sub-agents instead.
+- Haiku costs 1/40 of Opus. Sonnet costs half of Opus, cache reads included ($0.10
+  against $0.20 per MTok), and cache reads are most of a long session's input. But
+  switching a cached session from Opus to Sonnet re-writes the whole cache first:
+  route the work through sub-agents instead.
 - A sub-agent's first request writes its own cache (15k to 30k tokens). On Opus that
   costs more than a couple of inline tool calls; on Haiku it costs almost nothing.
 
@@ -30,7 +30,7 @@ Two consequences of the price sheet worth knowing:
 | `medium` | balanced; default of Opus 5.5 and Haiku 5.5 on the API | 0.5–1.0× | standard work; verified hard work as a first try |
 | `high` | deep reasoning | 1× | work no check can grade: design, review, ambiguous or high-stakes tasks |
 | `xhigh` | very deep reasoning, more tool calls | 1.4–2.2× | a hard task that failed at `high`, or hard and risky long autonomous runs |
-| `max` | no limit on reasoning | 3.7–9.3×, 4–7× slower | only after `xhigh` failed; never a default |
+| `max` | no limit on reasoning | 3.7–9.3×, 1.1–10.9× slower | only after `xhigh` failed; never a default |
 
 ### What the sweep measured
 
