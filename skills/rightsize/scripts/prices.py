@@ -1,6 +1,6 @@
 """List prices for Claude models, USD per million tokens.
 
-Source: platform.claude.com pricing and prompt-caching pages, checked 2026-10-27.
+Source: platform.claude.com pricing and prompt-caching pages, checked 2026-11-09.
 Re-check before quoting dollars: prices change. Cache writes cost 1.25x input
 (5-minute TTL) or 2x input (1-hour TTL); cache reads use a per-model rate.
 """
@@ -21,6 +21,7 @@ class Price:
 
 
 PRICES = {
+    "claude-fable-5-2": Price(8.0, 40.0, 0.20),
     "claude-fable-5-1": Price(10.0, 50.0, 0.25),
     "claude-fable-5": Price(10.0, 50.0, 1.0),
     "claude-opus-5-5": Price(4.0, 20.0, 0.20),
@@ -28,7 +29,7 @@ PRICES = {
     "claude-opus-4-8": Price(5.0, 25.0, 0.50),
     "claude-opus-4-7": Price(5.0, 25.0, 0.50),
     "claude-opus-4-6": Price(5.0, 25.0, 0.50),
-    "claude-sonnet-5-5": Price(2.0, 10.0, 0.20),
+    "claude-sonnet-5-5": Price(2.0, 10.0, 0.10),
     "claude-sonnet-5": Price(2.0, 10.0, 0.20),
     "claude-sonnet-4-6": Price(3.0, 15.0, 0.30),
     "claude-haiku-5-5": Price(0.10, 0.50, 0.01, 100_000, 0.50, 2.50),
@@ -36,7 +37,7 @@ PRICES = {
 }
 
 ALIASES = {
-    "fable": "claude-fable-5-1",
+    "fable": "claude-fable-5-2",
     "opus": "claude-opus-5-5",
     "sonnet": "claude-sonnet-5-5",
     "haiku": "claude-haiku-5-5",
