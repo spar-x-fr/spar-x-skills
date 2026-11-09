@@ -99,6 +99,8 @@ class Prices(unittest.TestCase):
         self.assertEqual(resolve("claude-opus-5-5[1m]"), "claude-opus-5-5")
         self.assertEqual(resolve("claude-opus-5"), "claude-opus-5")
         self.assertIsNone(resolve("gpt-5"))
+        self.assertEqual(resolve("fable"), "claude-fable-5-2")
+        self.assertEqual(resolve("claude-fable-5-1"), "claude-fable-5-1")
 
     def test_cost_components(self):
         usage = {
@@ -110,6 +112,17 @@ class Prices(unittest.TestCase):
         }
         # 4 input + 20 output + 0.20 read + 4 * 2 one-hour write
         self.assertAlmostEqual(request_cost("claude-opus-5-5", usage), 32.20)
+
+    def test_fable_5_2_and_sonnet_cache_read(self):
+        usage = {
+            "input_tokens": 1_000_000,
+            "output_tokens": 1_000_000,
+            "cache_read_input_tokens": 1_000_000,
+        }
+        # 8 input + 40 output + 0.20 read
+        self.assertAlmostEqual(request_cost("claude-fable-5-2", usage), 48.20)
+        # 2 input + 10 output + 0.10 read
+        self.assertAlmostEqual(request_cost("claude-sonnet-5-5", usage), 12.10)
 
     def test_haiku_long_prompt_rate(self):
         short = request_cost("claude-haiku-5-5", {"input_tokens": 50_000})
