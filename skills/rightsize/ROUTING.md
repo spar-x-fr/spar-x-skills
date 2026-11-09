@@ -1,25 +1,27 @@
 # Rightsize reference
 
 Loaded only when SKILL.md is not enough. Prices and mechanisms checked on
-2026-10-27 against platform.claude.com and code.claude.com; re-check before
+2026-11-09 against platform.claude.com and code.claude.com; re-check before
 quoting dollars.
 
 ## The arithmetic behind the rules
 
 | Model | Input $/MTok | Output $/MTok | Cache read | 1-hour cache write |
 |---|---|---|---|---|
+| Fable 5.2 | 8 | 40 | 0.20 | 16 |
 | Fable 5.1 | 10 | 50 | 0.25 | 20 |
 | Opus 5.5 | 4 | 20 | 0.20 | 8 |
-| Sonnet 5.5 | 2 | 10 | 0.20 | 4 |
+| Sonnet 5.5 | 2 | 10 | 0.10 | 4 |
 | Haiku 5.5 | 0.10 (0.50 above 100k) | 0.50 (2.50 above 100k) | 0.01 | 0.20 |
 
 What follows from it:
 
 1. **Haiku is the big lever, Sonnet a modest one.** Haiku costs 1/40 of Opus on
-   input and output. Sonnet costs half of Opus, and the same on cache reads.
+   input and output. Sonnet costs half of Opus, cache reads included.
 2. **In a long session most input is cache reads** (97% on the author's own month of
-   usage). On Opus and Sonnet those cost the same, so moving a cached session from
-   Opus to Sonnet only saves on output, and pays a full cache re-write.
+   usage). Sonnet reads its cache at half the Opus rate, but moving a cached session
+   from Opus to Sonnet first pays a full cache re-write: route the work through
+   sub-agents instead of switching the session.
 3. **Output is where effort bites.** Effort mostly changes how much the model thinks
    and how many tool calls it makes. Output costs 5x input, so a lower effort on the
    same model is often the cheapest saving that keeps quality.
@@ -60,7 +62,7 @@ one. The routing happens where it can act: the Agent call and the agent files.
 | "Requests hang once a day, no idea why" | C2 R2 A2 D3 | opus/xhigh, read-only investigation first |
 | "Implement an optimal scheduler with precedence constraints" | C1 R1 A0 D3 | opus/high |
 | "Translate these 200 product descriptions" | BULK, R1 | haiku/low, batched |
-| Same task failed twice on sonnet/medium | +2 failures | sonnet/high, then opus/high |
+| Same task failed twice on sonnet/medium | +2 failures | sonnet/high, then opus/medium |
 
 ## Briefing a cheaper model
 

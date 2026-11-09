@@ -86,6 +86,53 @@ Smells of a shallow fix: a guard added at the symptom, a retry, a broadened `exc
 2. Writing on sonnet/medium; haiku/low for mechanical updates (renamed flags, paths).
 3. Run every command and example you publish.
 
+## Writing and published content (posts, emails, pages, product copy)
+
+Published text is R = 2: the reader, not a test, grades it.
+
+1. **Brief first**: who reads it, what they should do next, the one idea, the channel's
+   limits (length, format, tone). Ask the user only what the material cannot answer.
+2. **Facts from sources** (rs-scout, haiku/low): every figure, name, date and quote
+   comes with its source. No source, no claim.
+3. **Draft** on sonnet/medium; opus/high when the positioning or the argument is the
+   hard part (A ≥ 2). One strong draft beats five variants nobody compares.
+4. **Verify**: re-read as the target reader; check each fact against its source, each
+   link by opening it, the length and format against the channel. Mechanical variants
+   (translations, resizes) are BULK on haiku/low against the approved master.
+
+## Data analysis and documents (spreadsheets, reports, decks)
+
+1. **State the question and the unit** before touching the data; inspect the real
+   rows (types, gaps, duplicates), not the header.
+2. **Compute with code or formulas**, never in prose (T0 when a tool does it).
+3. **Verify**: totals reconcile with the source, one figure is recomputed a second
+   way, the file is opened and looked at as the reader will see it.
+4. Say what was excluded and why, and which numbers are estimates.
+
+## Actions in someone's name (messages, forms, purchases, posts, deletions)
+
+Sending, publishing, paying and deleting cannot be taken back: handle them like the
+irreversible steps of the migration playbook.
+
+1. **Prepare everything reversible first**: research, drafts, the exact list of
+   recipients or items, on the cheapest tier that a check covers.
+2. **Show the user the exact action** (what, to whom, how many, what it costs) and get
+   their go before the first irreversible step, unless they already gave it for this
+   exact action.
+3. **Execute one, verify, then batch**: confirm the first result where it lands before
+   the rest. Stop at the first anomaly instead of retrying.
+4. **Log** what was done, to whom and when, so a later run neither repeats nor skips.
+
+## Scheduled or unattended run
+
+Nobody answers questions and nobody watches: the brief carries everything.
+
+1. A standalone prompt: goal, inputs, the check, the limits, what to do when blocked.
+2. **Idempotent**: read the log of the previous runs first; never do the same item twice.
+3. **Hard caps** on volume, spend and duration; stop and report when one is reached.
+4. Anything irreversible and ambiguous is prepared and left for the user, not guessed.
+5. End with a short report: done, skipped and why, blocked, what the next run needs.
+
 ## Sprint close
 
 1. `test_scope.py --full --run` and record the result in the ledger.
