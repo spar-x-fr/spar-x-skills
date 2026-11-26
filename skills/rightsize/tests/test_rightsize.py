@@ -64,6 +64,39 @@ class RouteTable(unittest.TestCase):
         self.check(Task(depth=3, risk=1, has_check=True), "opus", "medium")
         self.check(Task(scope=2, depth=2, has_check=True), "sonnet", "low")
 
+    def test_max_risk_alone_goes_opus_high(self):
+        self.check(Task(risk=3), "opus", "high")
+
+    def test_max_risk_ignores_scope_and_ambiguity(self):
+        for scope in range(4):
+            for ambiguity in range(4):
+                for depth in range(3):
+                    task = Task(risk=3, scope=scope, ambiguity=ambiguity, depth=depth)
+                    self.check(task, "opus", "high")
+                self.check(Task(risk=3, scope=scope, ambiguity=ambiguity, depth=3), "opus", "xhigh")
+
+    def test_max_risk_never_gets_less_than_risk_two(self):
+        efforts = ["low", "medium", "high", "xhigh", "max"]
+        for scope in range(4):
+            for ambiguity in range(4):
+                for depth in range(4):
+                    for long_run in (False, True):
+                        axes = {"scope": scope, "ambiguity": ambiguity, "depth": depth}
+                        two = route(Task(risk=2, long_run=long_run, **axes))
+                        three = route(Task(risk=3, long_run=long_run, **axes))
+                        self.assertGreaterEqual(
+                            efforts.index(three.effort), efforts.index(two.effort), (axes, two)
+                        )
+
+    def test_max_risk_wins_over_a_deterministic_tool(self):
+        self.check(Task(tool_can_do_it=True, risk=3), "opus", "high")
+        self.check(Task(tool_can_do_it=True, risk=3, depth=3), "opus", "xhigh")
+        self.check(Task(tool_can_do_it=True, risk=2), "none", "none", "inline")
+
+    def test_max_risk_is_not_downgraded_by_read_or_bulk(self):
+        self.check(Task(risk=3, read_only=True), "opus", "high")
+        self.check(Task(risk=3, bulk=True), "opus", "high")
+
     def test_verification_never_lowers_max_risk(self):
         self.check(Task(risk=3, depth=2, has_check=True), "opus", "high")
 

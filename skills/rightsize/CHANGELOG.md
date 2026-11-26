@@ -16,10 +16,14 @@ All notable changes are listed here. The format follows
 
 ### Fixed
 
+- Maximum-risk tasks (R = 3) route to opus at any scope: `route.py` sent a task with
+  only R = 3 to haiku/low because the simple-task branches ran first. R = 3 now gives
+  opus/high, or opus/xhigh with D = 3, even when read-only, bulk or doable by a tool,
+  and the table lists these rows first.
 - The routing table in `SKILL.md` now reads top to bottom in the order `route.py`
   applies: D = 3 and R = 3 rows come before the "opus plans, sonnet executes" row, the
   `xhigh` row no longer reads as "any long run", and the last rung matches the ladder
-  (fable at xhigh, then fable at max). No routing rule changed.
+  (fable at xhigh, then fable at max).
 - Sonnet 5.5 cache reads cost $0.10 per MTok, not $0.20 (pricing page, and the costs
   recorded in `bench/results/` match it). The claim that Opus and Sonnet cache reads
   cost the same is removed; the rule against switching model mid-session stays, for

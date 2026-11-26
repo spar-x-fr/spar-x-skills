@@ -60,12 +60,14 @@ Read the table top to bottom and stop at the first row that matches (the order
 
 | Situation | Model | Effort |
 |---|---|---|
+| R = 3 and D = 3 | opus | xhigh |
+| R = 3, whatever the other axes, T0, READ or BULK included | opus | high |
 | T0 | no model: run the tool | — |
 | READ, or BULK with an exact spec and a check, R ≤ 1 | haiku | low |
 | peak ≤ 1 | haiku, or sonnet if others build on the result | low |
 | peak = 2 | sonnet | medium |
-| D = 3 with R ≥ 2, or D = 3 in a long autonomous run | opus | xhigh |
-| D = 3, or R = 3 | opus | high |
+| D = 3 with R = 2, or D = 3 in a long autonomous run | opus | xhigh |
+| D = 3 | opus | high |
 | C or A = 3 | opus plans (high), sonnet executes (medium) | |
 | peak = 3 only through the risk bonus | opus | medium |
 
