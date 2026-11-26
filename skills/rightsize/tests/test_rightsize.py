@@ -64,6 +64,39 @@ class RouteTable(unittest.TestCase):
         self.check(Task(depth=3, risk=1, has_check=True), "opus", "medium")
         self.check(Task(scope=2, depth=2, has_check=True), "sonnet", "low")
 
+    def test_max_risk_alone_goes_opus_high(self):
+        self.check(Task(risk=3), "opus", "high")
+
+    def test_max_risk_ignores_scope_and_ambiguity(self):
+        for scope in range(4):
+            for ambiguity in range(4):
+                for depth in range(3):
+                    task = Task(risk=3, scope=scope, ambiguity=ambiguity, depth=depth)
+                    self.check(task, "opus", "high")
+                self.check(Task(risk=3, scope=scope, ambiguity=ambiguity, depth=3), "opus", "xhigh")
+
+    def test_max_risk_never_gets_less_than_risk_two(self):
+        efforts = ["low", "medium", "high", "xhigh", "max"]
+        for scope in range(4):
+            for ambiguity in range(4):
+                for depth in range(4):
+                    for long_run in (False, True):
+                        axes = {"scope": scope, "ambiguity": ambiguity, "depth": depth}
+                        two = route(Task(risk=2, long_run=long_run, **axes))
+                        three = route(Task(risk=3, long_run=long_run, **axes))
+                        self.assertGreaterEqual(
+                            efforts.index(three.effort), efforts.index(two.effort), (axes, two)
+                        )
+
+    def test_max_risk_wins_over_a_deterministic_tool(self):
+        self.check(Task(tool_can_do_it=True, risk=3), "opus", "high")
+        self.check(Task(tool_can_do_it=True, risk=3, depth=3), "opus", "xhigh")
+        self.check(Task(tool_can_do_it=True, risk=2), "none", "none", "inline")
+
+    def test_max_risk_is_not_downgraded_by_read_or_bulk(self):
+        self.check(Task(risk=3, read_only=True), "opus", "high")
+        self.check(Task(risk=3, bulk=True), "opus", "high")
+
     def test_verification_never_lowers_max_risk(self):
         self.check(Task(risk=3, depth=2, has_check=True), "opus", "high")
 
@@ -99,6 +132,8 @@ class Prices(unittest.TestCase):
         self.assertEqual(resolve("claude-opus-5-5[1m]"), "claude-opus-5-5")
         self.assertEqual(resolve("claude-opus-5"), "claude-opus-5")
         self.assertIsNone(resolve("gpt-5"))
+        self.assertEqual(resolve("fable"), "claude-fable-5-2")
+        self.assertEqual(resolve("claude-fable-5-1"), "claude-fable-5-1")
 
     def test_cost_components(self):
         usage = {
@@ -110,6 +145,17 @@ class Prices(unittest.TestCase):
         }
         # 4 input + 20 output + 0.20 read + 4 * 2 one-hour write
         self.assertAlmostEqual(request_cost("claude-opus-5-5", usage), 32.20)
+
+    def test_fable_5_2_and_sonnet_cache_read(self):
+        usage = {
+            "input_tokens": 1_000_000,
+            "output_tokens": 1_000_000,
+            "cache_read_input_tokens": 1_000_000,
+        }
+        # 8 input + 40 output + 0.20 read
+        self.assertAlmostEqual(request_cost("claude-fable-5-2", usage), 48.20)
+        # 2 input + 10 output + 0.10 read
+        self.assertAlmostEqual(request_cost("claude-sonnet-5-5", usage), 12.10)
 
     def test_haiku_long_prompt_rate(self):
         short = request_cost("claude-haiku-5-5", {"input_tokens": 50_000})

@@ -58,6 +58,12 @@ def peak(task: Task) -> int:
 
 
 def base_route(task: Task) -> Route:
+    if task.risk == 3:
+        # Checked before the tool shortcut: at maximal risk even a tool-doable task keeps a
+        # model to judge it. D = 3 is xhigh, as it already is at R = 2: R = 3 never gets less.
+        if task.depth == 3:
+            return Route("opus", "xhigh", "", reason="risque maximal et raisonnement difficile")
+        return Route("opus", "high", "", reason="risque maximal")
     if task.tool_can_do_it:
         return Route("none", "none", "inline", reason="un outil déterministe suffit")
     if (task.read_only or task.bulk) and task.risk <= 1:
@@ -69,8 +75,8 @@ def base_route(task: Task) -> Route:
         return Route("sonnet", "medium", "", reason="tâche standard")
     if task.depth == 3 and (task.risk >= 2 or task.long_run):
         return Route("opus", "xhigh", "", reason="raisonnement difficile à fort enjeu")
-    if task.depth == 3 or task.risk == 3:
-        return Route("opus", "high", "", reason="raisonnement difficile ou risque maximal")
+    if task.depth == 3:
+        return Route("opus", "high", "", reason="raisonnement difficile")
     if max(task.scope, task.ambiguity) < 3:
         return Route("opus", "medium", "", reason="enjeu prod sur une tâche non triviale")
     return Route(
